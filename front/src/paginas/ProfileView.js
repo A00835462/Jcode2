@@ -120,25 +120,29 @@ function ProfileView(){
     <section>
         <Table headers = {[
             {title:"", key:"image", render: (value)=>{ return (<> <img className="rounded-circle" height={10} src={value}/></>)} },
-            {title:"Email", key:"user.email"},
-            {title:"First Name", key:"user.first_name"},
-            {title:"Total score", key:"user.total_score"},
-            {title:"Average score", key:"user.average_score"},
-            {title:"Last login", key:"user.last_login"},
-
-        ]} data = {profileList}/>
+            { title: "Email", key: "user.email" },
+            { title: "First Name", key: "user.first_name" },
+            { title: "Total score", key: "user.total_score" },
+            { title: "Average Score", key: "user.average_score", render: (average_score) => Math.round(average_score) },
+            { title: "Average Time", key: "user.average_time", render: (average_time) => Math.round(average_time)  }, 
+            { title: "Total times completed", key: "user.number_of_times_completed" },
+            { title: "Last login", key: "user.last_login" },
+            ]}
+            data={profileList}/>
     </section>
     <section>
     <h2>Lista de scores</h2>
     {isLoading ? 
         <Spinner msg = "Loading..."/>: 
-        <Table headers = {[
-            {title: "User", key:"user.email"},
-            {title: "Score", key: "score"},
-            {title: "Average score", key: "user.average_score"},
-            {title: "Total score", key: "user.total_score"}
-
-        ]} data = {currentScoreList}/>}
+        <Table headers={[
+            { title: "User", key: "user.email" },
+            { title: "Score", key: "score" },
+            { title: "Time", key: "time" },
+            { title: "Tasks", key: "tasks" },
+            { title: "Completed", key: "completed" },
+            { title: "Average Score", key: "user.average_score", render: (average_score) => Math.round(average_score) },
+            { title: "Total score", key: "user.total_score" },
+          ]} data = {currentScoreList}/>}
     </section>
     <section id="fields">
         <div className="inputs">

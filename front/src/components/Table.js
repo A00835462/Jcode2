@@ -44,7 +44,7 @@ function Table(props){
                                 return (
                                     <td key = {index}>{
                                         header.render ?
-                                        header.render(getValue (item,header.key)): getValue (item,header.key)
+                                        header.render(getValue(item, header.key)): getValue(item, header.key)
                                     }
                                     </td>
                                 )

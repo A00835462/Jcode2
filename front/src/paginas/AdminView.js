@@ -180,16 +180,15 @@ const loadData4 = () =>{
         <section id="dashboard">
           <h2>User Scores</h2>
 
-          
           <Table
               headers={[
-                { title: "User", key: "user.email" },
-                { title: "Score", key: "score" },
-                { title: "Average score", key: "user.average_score" },
-                { title: "Total score", key: "user.total_score" },
-              ]}
-              data={currentScoreList}
-            />
+                  { title: "User", key: "user.email" },
+                  { title: "Score", key: "score" },
+                  { title: "Average Score", key: "user.average_score", render: (average_score) => Math.round(average_score) },
+                  { title: "Average Time", key: "user.average_time", render: (average_time) => Math.round(average_time)  },  
+                  { title: "Tasks", key: "tasks" },
+                  { title: "Times Completed", key: "user.number_of_times_completed" }, 
+              ]}data={currentScoreList}/>
         </section>
         <Button type = "primary" onClick={onSubmit}>Menor a 200</Button>
         <Button type = "primary" onClick={onSubmit2}>Menor a 500</Button>
@@ -201,10 +200,12 @@ const loadData4 = () =>{
         {isLoading ? 
         <div></div>: 
         <Table headers = {[
-          {title: "User", key:"user.email"},
-          {title: "Score", key: "score"},
-          {title: "Average score", key: "user.average_score"},
-          {title: "Total score", key: "user.total_score"},
+          { title: "User", key: "user.email" },
+          { title: "Score", key: "score" },
+          { title: "Average Score", key: "user.average_score", render: (average_score) => Math.round(average_score) },
+          { title: "Average Time", key: "user.average_time", render: (average_time) => Math.round(average_time)  }, 
+          { title: "Tasks", key: "tasks" },
+          { title: "Times Completed", key: "user.number_of_times_completed" }, 
           {title: "",key: "user.email", render: (email) => {return ( <Link to="#" onClick={(e) => { e.preventDefault(); handleUserSelection(email); }}> Ver puntajes </Link>);},},
         ]}
         data={scoreList}/>}
@@ -212,26 +213,33 @@ const loadData4 = () =>{
         </section>
           {isFilter? <section> 
             <Table headers = {[  
-              {title: "User", key:"user.email"},
-              {title: "Score", key: "score"},
-              {title: "Average score", key: "user.average_score"},
-              {title: "Total score", key: "user.total_score"},
+              { title: "User", key: "user.email" },
+              { title: "Score", key: "score" },
+              { title: "Average Score", key: "user.average_score", render: (average_score) => Math.round(average_score) },
+              { title: "Average Time", key: "user.average_time", render: (average_time) => Math.round(average_time)  }, 
+              { title: "Tasks", key: "tasks" },
+              { title: "Times Completed", key: "user.number_of_times_completed" }, 
               {title: "",key: "user.email", render: (email) => {return ( <Link to="#" onClick={(e) => { e.preventDefault(); handleUserSelection(email); }}> Ver puntajes </Link>);},},
         ]}
         data={scoreList2}/> </section>: <div></div>}
-          { isFilter200? <section> <Table headers = {[
-          {title: "User", key:"user.email"},
-          {title: "Score", key: "score"},
-          {title: "Average score", key: "user.average_score"},
-          {title: "Total score", key: "user.total_score"},
-          {title: "",key: "user.email", render: (email) => {return ( <Link to="#" onClick={(e) => { e.preventDefault(); handleUserSelection(email); }}> Ver puntajes </Link>);},},
+          { isFilter200? <section> 
+            <Table headers = {[
+              { title: "User", key: "user.email" },
+              { title: "Score", key: "score" },
+              { title: "Average Score", key: "user.average_score", render: (average_score) => Math.round(average_score) },
+              { title: "Average Time", key: "user.average_time", render: (average_time) => Math.round(average_time)  }, 
+              { title: "Tasks", key: "tasks" },
+              { title: "Times Completed", key: "user.number_of_times_completed" }, 
+              {title: "",key: "user.email", render: (email) => {return ( <Link to="#" onClick={(e) => { e.preventDefault(); handleUserSelection(email); }}> Ver puntajes </Link>);},},
         ]}
         data={scoreList3}/></section>: <div></div>}
           { isFilter500? <section> <Table headers = {[
-          {title: "User", key:"user.email"},
-          {title: "Score", key: "score"},
-          {title: "Average score", key: "user.average_score"},
-          {title: "Total score", key: "user.total_score"},
+          { title: "User", key: "user.email" },
+          { title: "Score", key: "score" },
+          { title: "Average Score", key: "user.average_score", render: (average_score) => Math.round(average_score) },
+          { title: "Average Time", key: "user.average_time", render: (average_time) => Math.round(average_time)  }, 
+          { title: "Tasks", key: "tasks" },
+          { title: "Times Completed", key: "user.number_of_times_completed" }, 
           {title: "",key: "user.email", render: (email) => {return ( <Link to="#" onClick={(e) => { e.preventDefault(); handleUserSelection(email); }}> Ver puntajes </Link>);},},
         ]}
         data={scoreList4}/> </section>:<div></div>}

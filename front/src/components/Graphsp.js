@@ -22,18 +22,23 @@ function Graphsp({ scores, displayUser }) {
 
   const targetUser = displayUser || (scores.length > 0 ? scores[0].user.email : null);
 
-  const targetUserScore = scores.find((score) => score.user.email === targetUser);
+  const targetUserScores = scores.filter((score) => score.user.email === targetUser);
 
-  const barData = targetUserScore
-    ? [
-        {
-          name: targetUserScore.user.email,
-          Score: targetUserScore.score,
-        },
-      ]
-    : [];
+  const bestScore = Math.max(...targetUserScores.map((score) => score.score));
+  const worstScore = Math.min(...targetUserScores.map((score) => score.score));
 
-  const lineData = scores.map((score) => ({
+  const barData = [
+    {
+      name: "Best",
+      Score: bestScore,
+    },
+    {
+      name: "Worst",
+      Score: worstScore,
+    },
+  ];
+
+  const lineData = targetUserScores.map((score) => ({
     name: score.user.email,
     Score: score.score,
     Time: score.timestamp,
@@ -45,19 +50,6 @@ function Graphsp({ scores, displayUser }) {
         <h2>Graphs</h2>
         {scores.length > 0 ? (
           <div className="graphs">
-            {/* <PieChart width={400} height={400}>
-              <Pie
-                dataKey="TotalScore"
-                isAnimationActive={false}
-                data={pieData}
-                cx={200}
-                cy={200}
-                outerRadius={80}
-                fill="#72b840"
-                label
-              />
-              <Tooltip />
-            </PieChart> */}
             <BarChart
               width={400}
               height={400}
@@ -75,7 +67,7 @@ function Graphsp({ scores, displayUser }) {
                 scale="point"
                 padding={{ left: 10, right: 10 }}
               />
-              <YAxis />
+              <YAxis label={{ value: "Scores", angle: -90, position: "insideLeft" }} />
               <Tooltip />
               <Legend />
               <CartesianGrid strokeDasharray="3 3" />
@@ -97,7 +89,13 @@ function Graphsp({ scores, displayUser }) {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="Score" stroke="#72b840" activeDot={{ r: 8 }} />
+              <Line
+                type="monotone"
+                dataKey="Score"
+                stroke="#72b840"
+                activeDot={{ r: 8 }}
+                name="Score History"
+              />
             </LineChart>
           </div>
         ) : (

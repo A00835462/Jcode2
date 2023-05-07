@@ -27,7 +27,7 @@ class ScoreboardView(viewsets.ModelViewSet):
                 score=serializer.validated_data["score"],
                 tasks=serializer.validated_data["tasks"],
                 time=serializer.validated_data["time"],
-                completed=serializer.validated_data["completed"]
+                completed=serializer.validated_data["completed"],
             )
             score.save()
 
