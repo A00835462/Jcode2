@@ -43,14 +43,6 @@ class ScoreboardView(viewsets.ModelViewSet):
         serializer = ScoreboardSerializer(instance=scoreboard, many=True, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-    # @action(methods=["GET"], detail=False, permission_classes=[IsAuthenticated])
-    # def filter_user_scores(self, request):
-    #     user = User.objects.filter(email=request.user)[0]
-    #     scoreboard = Scoreboard.objects.filter(user=user, score__gt=200)
-    #     serializer = ScoreboardSerializer(instance=scoreboard, many=True, context={'request': request})
-    #     return Response(serializer.data, status=status.HTTP_200_OK)
-    
-
     @action(methods=["GET"],  detail=False, permission_classes=[IsAdminUser])
     def filter_user_scores(self, request):
         scoreboard = Scoreboard.objects.filter(score__gt=0, score__lt=200)
@@ -87,3 +79,4 @@ class ScoreboardView(viewsets.ModelViewSet):
                 return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
         else:
             return Response({"error": "Email parameter is required"}, status=status.HTTP_400_BAD_REQUEST)
+

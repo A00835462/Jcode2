@@ -20,10 +20,12 @@ function AdminView() {
   const [scoreList4, setScoreList4] = useState([]);
   const [currentScoreList, setCurrentScoreList] = useState([]);
   const [specificUserEmail, setSpecificUserEmail] = useState("");
-
   const handleUserSelection = (email) => {
     setSpecificUserEmail(email);
   };
+  
+
+
 
   const loadSpecificUserScores = () => {
     setLoading(true);
@@ -47,6 +49,8 @@ function AdminView() {
   useEffect(() => {
     loadSpecificUserScores();
   }, [specificUserEmail]);
+
+
 
   const onSubmit =()=>{
     if (isFilter === true){
@@ -244,8 +248,11 @@ const loadData4 = () =>{
         ]}
         data={scoreList4}/> </section>:<div></div>}
         {/* <Graphs className="graphs"></Graphs> */}
-        <Graphs scores={scoreList} />
+        {/* <Graphs scores={scoreList}/> */}
+        <Graphs scores={currentScoreList} />
+
       </main>
+
       <Footer/>
     </div>
   );
