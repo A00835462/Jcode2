@@ -8,7 +8,9 @@ from rest_framework import  status
 from ..models import User
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
-
+from tc2005.serializers.scoreboard_serializer import ScoreboardSerializer, ScoreSerializer
+import pyodbc 
+from tc2005.models import Scoreboard
 class ProfileView(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
@@ -57,3 +59,16 @@ class ProfileView(viewsets.ModelViewSet):
             return Response({"success": True, "message": "Password updated."}, status=status.HTTP_200_OK)
         else:
             return Response({"success": False, "message": "Password not found in request."}, status=status.HTTP_400_BAD_REQUEST)
+
+    @action(methods=["POST"],  detail=False)
+    def save_riskescape(self, request):
+        user = User.objects.get(email=request.data['user'])
+        score = Scoreboard.objects.create(
+                user=user,
+                score=request.data['score'],
+                tasks=request.data['tasks'],
+                time=request.data['time'],
+                completed=request.data['completed']
+        )
+        score.save()
+        return Response({"success": True, "message": "Score saved."}, status=status.HTTP_200_OK)

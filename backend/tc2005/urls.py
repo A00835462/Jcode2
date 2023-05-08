@@ -42,3 +42,10 @@ urlpatterns += [
 urlpatterns += [
     path("api/profile/update_image/", ProfileView.as_view({'post': 'update_image'})),
 ]
+
+urlpatterns += [
+    path("api/profile/save_riskescape/", ProfileView.as_view({'post': 'save_riskescape'})),
+]
+urlpatterns += [
+    path("api/profile/register_score/", ScoreboardView.as_view({'post': 'register_score'})),
+]
