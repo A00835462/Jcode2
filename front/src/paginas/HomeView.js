@@ -51,7 +51,7 @@ function HomeView () {
         
             <section id="about">
                 <h2>About Us</h2>
-                <p>Our team is made up of individuals with diverse backgrounds and skillsets, united by a shared passion for technology and a commitment to excellence. We have put our heads together to create two exciting simulators for Regal Rednox: an escape room. This simulator provides a realistic and engaging environment in which employees can practice identifying and responding to potential hazards.</p>
+                <p>Our team is made up of individuals with diverse backgrounds and skillsets, united by a shared passion for technology and a commitment to excellence. We have put our heads together to create an exciting simulator for Regal Rednox: an escape room. This simulator provides a realistic and engaging environment in which employees can practice identifying and responding to potential hazards.</p>
                 <p>We take pride in our work and are committed to delivering a high-quality product that meets the unique needs of our clients. We understand the importance of safety in the workplace, and we are excited to be part of a project that has the potential to make a real difference in the lives of Regal Rednox employees.</p>
                 <p>Thank you for taking the time to visit our website and learn more about our team and our project. If you have any questions or would like to learn more about our work, please don't hesitate to get in touch. We look forward to hearing from you!</p>
             </section> 

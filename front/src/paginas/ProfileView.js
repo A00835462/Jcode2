@@ -139,7 +139,6 @@ function ProfileView(){
             { title: "Score", key: "score" },
             { title: "Time", key: "time" },
             { title: "Tasks", key: "tasks" },
-            { title: "Completed", key: "completed" },
             { title: "Average Score", key: "user.average_score", render: (average_score) => Math.round(average_score) },
             { title: "Total score", key: "user.total_score" },
           ]} data = {currentScoreList}/>}

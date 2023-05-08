@@ -192,6 +192,8 @@ const loadData4 = () =>{
                   { title: "Average Time", key: "user.average_time", render: (average_time) => Math.round(average_time)  },  
                   { title: "Tasks", key: "tasks" },
                   { title: "Times Completed", key: "user.number_of_times_completed" }, 
+                  { title: "Last Logged In", key: "user.last_login" },
+
               ]}data={currentScoreList}/>
         </section>
         <Button type = "primary" onClick={onSubmit}>Menor a 200</Button>
@@ -210,6 +212,8 @@ const loadData4 = () =>{
           { title: "Average Time", key: "user.average_time", render: (average_time) => Math.round(average_time)  }, 
           { title: "Tasks", key: "tasks" },
           { title: "Times Completed", key: "user.number_of_times_completed" }, 
+          { title: "Last Logged In", key: "user.last_login" },
+
           {title: "",key: "user.email", render: (email) => {return ( <Link to="#" onClick={(e) => { e.preventDefault(); handleUserSelection(email); }}> Ver puntajes </Link>);},},
         ]}
         data={scoreList}/>}
@@ -223,6 +227,8 @@ const loadData4 = () =>{
               { title: "Average Time", key: "user.average_time", render: (average_time) => Math.round(average_time)  }, 
               { title: "Tasks", key: "tasks" },
               { title: "Times Completed", key: "user.number_of_times_completed" }, 
+              { title: "Last Logged In", key: "user.last_login" },
+
               {title: "",key: "user.email", render: (email) => {return ( <Link to="#" onClick={(e) => { e.preventDefault(); handleUserSelection(email); }}> Ver puntajes </Link>);},},
         ]}
         data={scoreList2}/> </section>: <div></div>}
@@ -234,6 +240,8 @@ const loadData4 = () =>{
               { title: "Average Time", key: "user.average_time", render: (average_time) => Math.round(average_time)  }, 
               { title: "Tasks", key: "tasks" },
               { title: "Times Completed", key: "user.number_of_times_completed" }, 
+              { title: "Last Logged In", key: "user.last_login" },
+
               {title: "",key: "user.email", render: (email) => {return ( <Link to="#" onClick={(e) => { e.preventDefault(); handleUserSelection(email); }}> Ver puntajes </Link>);},},
         ]}
         data={scoreList3}/></section>: <div></div>}
@@ -244,6 +252,8 @@ const loadData4 = () =>{
           { title: "Average Time", key: "user.average_time", render: (average_time) => Math.round(average_time)  }, 
           { title: "Tasks", key: "tasks" },
           { title: "Times Completed", key: "user.number_of_times_completed" }, 
+          { title: "Last Logged In", key: "user.last_login" },
+
           {title: "",key: "user.email", render: (email) => {return ( <Link to="#" onClick={(e) => { e.preventDefault(); handleUserSelection(email); }}> Ver puntajes </Link>);},},
         ]}
         data={scoreList4}/> </section>:<div></div>}
